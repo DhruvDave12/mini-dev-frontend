@@ -1,11 +1,22 @@
-import { Button } from "@/components/ui/button";
-import NavigationBar from "@/components/custom/navigation-bar.custom";
 import { NAVIGATION_ITEMS } from "@/constants/navigation.constants";
+import { Hero, NavigationBar } from "@/components/custom";
+import { withPublic } from "@/hooks/route";
 
-export default function Home() {
+interface IHomeProps {
+  auth: any;
+}
+
+function Home({ auth }: IHomeProps) {
+  const { user } = auth;
+  console.log("USER IN HERE HAHAHA");
   return (
-    <div>
+    <div style={{ height: "80vh" }}>
       <NavigationBar items={NAVIGATION_ITEMS} />
+      <div className="flex justify-center items-center w-full h-full">
+        <Hero />
+      </div>
     </div>
   );
 }
+
+export default withPublic(Home);

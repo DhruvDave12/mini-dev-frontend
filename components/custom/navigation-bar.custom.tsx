@@ -11,7 +11,7 @@ import { INavigationBarProps } from "@/types/navigation_bar.types";
 import Link from "next/link";
 import { ModeToggle } from "@/components/custom/theme-mode.custom";
 import Image from "next/image";
-import LogoImage from "@/assets/logo_circle.png";
+import LogoImage from "@/assets/kh-logo.png";
 
 const NavigationBar = ({ items }: INavigationBarProps) => {
   return (
@@ -19,7 +19,7 @@ const NavigationBar = ({ items }: INavigationBarProps) => {
       <div className="w-3/4">
         <div className="grid grid-cols-3 gap-4 py-4">
           <div>
-            <Image src={LogoImage} alt="logo" width={50} height={50} />
+            <Image src={LogoImage} alt="logo" width={140} height={140}/>
           </div>
           <div>
             <NavigationMenu>
