@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AuthProvider } from "@/context/AuthContext";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ChatProvider } from "@/context/ChatContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,18 +16,20 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <ThemeProvider
-            attribute="class"
-            // @ts-ignore
-            defaultTheme={
-              typeof window != "undefined"
-                ? localStorage.getItem("theme")
-                : "system"
-            }
-            enableSystem
-          >
-            {children}
-          </ThemeProvider>
+          <ChatProvider>
+            <ThemeProvider
+              attribute="class"
+              // @ts-ignore
+              defaultTheme={
+                typeof window != "undefined"
+                  ? localStorage.getItem("theme")
+                  : "system"
+              }
+              enableSystem
+            >
+              {children}
+            </ThemeProvider>
+          </ChatProvider>
         </AuthProvider>
       </body>
     </html>
